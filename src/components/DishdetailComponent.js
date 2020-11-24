@@ -20,15 +20,14 @@ function RenderDish({dish}) {
                 <div></div>
             );
     }
- function RenderComments({comments}) {
-        if (comments != null){
-            let list = comments.map((comments)=>{
-
+ function RenderComments({dish}) {
+        if (dish != null){
+            let list = dish.comments.map((comment)=>{
             return(
-                <li key={comments.id} >
-                    <p>{comments.comment}</p>
-                    <p>--{comments.author},
-                    {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}</p>
+                <li key={comment.id} >
+                    <p>{comment.comment}</p>
+                    <p>--{comment.author},
+                    {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                 </li>
             
                 );
@@ -56,7 +55,7 @@ const DishDetail = (props) => {
             <div className="container">
                 <div className="row">
                     <RenderDish dish={props.selectedDish}/>
-                    <RenderComments comments={props.selectedDish.comments}/>    
+                    <RenderComments dish={props.selectedDish}/>    
                 </div>
             </div>
             );
