@@ -104,18 +104,15 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-
         this.toggleModal();
-
-        alert("Username: " + this.rating.value + " author: " + this.author.value
-            + " comment: " + this.comment);
-
+        console.log('Current State is: ' + JSON.stringify(values));
+        alert('Current State is: ' + JSON.stringify(values));
     }
 
     render() {
         return(
             <div>
-                <Button outline onClick={this.toggleModal}>
+                <Button  color="primary" onClick={this.toggleModal}>
                     <span className="fa fa-edit fa-lg"></span> Submit Comment
                 </Button>
 
